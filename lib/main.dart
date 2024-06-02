@@ -8,7 +8,7 @@ void main() {
     initialRoute: 'screen01',
     routes: {
       'screen01': (context) => const Screen01(),
-      'screen02': (context) => const Screen02(),
+      'screen02': (context) => Screen02(),
     },
   ));
 }

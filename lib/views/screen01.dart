@@ -18,21 +18,94 @@ class _Screen01State extends State<Screen01> {
         child: PageView(
           controller: pageController,
           children: [
+            // todo first page
             Container(
-              color: const Color.fromARGB(255, 211, 196, 173),
+                color: const Color(0xffffeeda),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset('assets/images/logo.png'),
+                    const SizedBox(
+                      height: 12,
+                    ),
+                    const Text(
+                      'Enjoy fresh food with us ',
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xffed337f)),
+                    )
+                  ],
+                )),
+            //  todo second page
+            Container(
+              color: Colors.white,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset('assets/images/onboarding_2.png'),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const Text(
+                    'Track your Comfort Food here',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  const Text(
+                    'Here You Can find a chef or dish\n for every taste and color. Enjoy!',
+                    style: TextStyle(
+                        color: Color(
+                      0xffb1b1b1,
+                    )),
+                  ),
+                ],
+              ),
             ),
+            //  todo third page
             Container(
-              color: Colors.red,
-            ),
-            Container(
-              color: Colors.green,
+              color: Colors.white,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Center(child: Image.asset('assets/images/onboarding_3.png')),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    child: const Text(
+                      'Foodie is Where Your\n Comfort Food Resides',
+                      style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  const Text(
+                    'Enjoy a fast and smooth food delivery\n at your doorstep',
+                    style: TextStyle(
+                        color: Color(
+                      0xffb1b1b1,
+                    )),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
       ),
+      // todo bottom sheet
       bottomSheet: Container(
           height: 60,
-          color: Colors.white,
+          color: const Color(0xffffeeda),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -40,13 +113,21 @@ class _Screen01State extends State<Screen01> {
                 onPressed: () {
                   Navigator.pushNamed(context, 'screen02');
                 },
-                child: const Text('skip'),
+                child: const Text(
+                  'skip',
+                  style: TextStyle(
+                    fontSize: 25,
+                    color: Color(0xffec2578),
+                  ),
+                ),
               ),
               Center(
                   child: SmoothPageIndicator(
                 controller: pageController,
                 count: 3,
-                effect: const WormEffect(),
+                effect: const ScrollingDotsEffect(
+                  activeDotColor: Color(0xffec2578),
+                ),
                 onDotClicked: (index) {
                   pageController.animateToPage(
                     index,
@@ -61,7 +142,13 @@ class _Screen01State extends State<Screen01> {
                       duration: const Duration(microseconds: 300),
                       curve: Curves.easeIn);
                 },
-                child: const Text('next'),
+                child: const Text(
+                  'next',
+                  style: TextStyle(
+                    fontSize: 25,
+                    color: Color(0xffec2578),
+                  ),
+                ),
               ),
             ],
           )),
