@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hw8/views/screen_page_widget.dart';
 
 class Screen02 extends StatelessWidget {
   Screen02({super.key});
@@ -90,34 +91,44 @@ class FoodItem extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
               color: Color(0xffffeeda),
             ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  "${items.elementAt(index)["image"]}",
-                  fit: BoxFit.fill,
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Text(
-                  "${items.elementAt(index)["text"]}",
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
+            // todo move to ScreenPageWidgetFromClassInfo
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ScreenPageWidgetFromClassInfo(),
+                    ));
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    "${items.elementAt(index)["image"]}",
+                    fit: BoxFit.fill,
                   ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Text(
-                  "\$${items.elementAt(index)["price"]}",
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
+                  const SizedBox(
+                    height: 5,
                   ),
-                ),
-              ],
+                  Text(
+                    "${items.elementAt(index)["text"]}",
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    "\$${items.elementAt(index)["price"]}",
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                  ),
+                ],
+              ),
             ),
           );
         },
