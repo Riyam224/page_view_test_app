@@ -14,12 +14,14 @@ class PageCard {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              // todo move to image picker screen
               Text(title,
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
                   )),
+
               const SizedBox(
                 height: 20,
               ),
